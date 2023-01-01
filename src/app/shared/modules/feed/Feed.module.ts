@@ -10,6 +10,7 @@ import {reducers} from "./store/Reducers";
 import {FeedService} from "./services/Feed.service";
 import {ErrorMessageModule} from "../error-message/ErrorMessage.module";
 import {LoadingModule} from "../loading/Loading.module";
+import {PaginationModule} from "../pagination/Pagination.module";
 
 const routes: Routes = [];
 
@@ -21,6 +22,7 @@ const routes: Routes = [];
     StoreModule.forFeature("feed", reducers),
     ErrorMessageModule,
     LoadingModule,
+    PaginationModule,
   ],
   declarations: [FeedComponent],
   exports: [FeedComponent],

@@ -30,5 +30,10 @@
       HERE IS LIST OF TAGS
     </a>
   </div>
-  PAGINATION
+  <ant-pagination
+    [total]="(feed$ | async)?.articlesCount || 0"
+    [limit]="limit"
+    [url]="baseUrl"
+    [currentPage]="currentPage"
+  ></ant-pagination>
 </div>
