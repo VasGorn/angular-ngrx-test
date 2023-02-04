@@ -1,4 +1,11 @@
-import {Component, Input, OnDestroy, OnInit} from "@angular/core";
+import {
+  Component,
+  Input,
+  OnChanges,
+  OnDestroy,
+  OnInit,
+  SimpleChanges,
+} from "@angular/core";
 import {ActivatedRoute, Params, Router} from "@angular/router";
 import {select, Store} from "@ngrx/store";
 import {Observable, Subscription} from "rxjs";
@@ -18,7 +25,7 @@ import {GetFeedResponseInterface} from "../../types/GetFeedResponse.interface";
   templateUrl: "./Feed.component.html",
   styleUrls: ["./Feed.component.scss"],
 })
-export class FeedComponent implements OnInit, OnDestroy {
+export class FeedComponent implements OnInit, OnDestroy, OnChanges {
   @Input("apiUrl") apiUrlProps: string = "";
 
   isLoading$: Observable<boolean> = new Observable();
@@ -45,6 +52,16 @@ export class FeedComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.queryParamsSubscription.unsubscribe();
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    const isApiUrlChanged =
+      !changes["apiUrlProps"].firstChange &&
+      changes["apiUrlProps"].currentValue !==
+        changes["apiUrlProps"].previousValue;
+    if (isApiUrlChanged) {
+      this.fetchFeed();
+    }
   }
 
   private fetchFeed(): void {
