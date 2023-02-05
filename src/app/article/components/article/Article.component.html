@@ -1,39 +1,43 @@
-<ant-loading *ngIf="isLoading$ | async"></ant-loading>
-<ant-error-message *ngIf="error$ | async" [message]="'Foo'"></ant-error-message>
-
-<div *ngIf="feed$ | async">
-  <div
-    class="article-preview"
-    *ngFor="let article of (feed$ | async)?.articles"
-  >
-    <div class="article-meta">
-      <a [routerLink]="['/profiles', article.author.username]">
-        <img [src]="article.author.image" />
-      </a>
-      <div class="info">
+<div class="article-page">
+  <div class="banner">
+    <div class="container" *ngIf="article">
+      <h1>{{ article.title }}</h1>
+      <div class="article-meta">
         <a [routerLink]="['/profiles', article.author.username]">
-          {{ article.author.username }}
+          <img [src]="article.author.image" />
         </a>
-        <span class="date">
-          {{ article.createdAt }}
+        <div class="info">
+          <a [routerLink]="['/profiles', article.author.username]">
+            {{ article.author.username }}
+          </a>
+          <span class="date">
+            {{ article.createdAt }}
+          </span>
+        </div>
+        <span *ngIf="isAuthor$ | async">
+          <a
+            [routerLink]="['/articles', article.slug, 'edit']"
+            class="btn btn-outline-secondary btn-sm"
+          >
+            <i class="ion-edit"></i>
+            Edit Article
+          </a>
+          DELETE BUTTON
         </span>
       </div>
-      <div class="pull-xs-right">ADD TO FAVORITES</div>
     </div>
-    <a [routerLink]="['/articles', article.slug]" class="preview-link">
-      <h1>
-        {{ article.title }}
-      </h1>
-      <p>
-        {{ article.description }}
-      </p>
-      <ant-tag-list [tags]="article.tagList"></ant-tag-list>
-    </a>
   </div>
-  <ant-pagination
-    [total]="(feed$ | async)?.articlesCount || 0"
-    [limit]="limit"
-    [url]="baseUrl"
-    [currentPage]="currentPage"
-  ></ant-pagination>
+  <div class="container page">
+    <ant-loading *ngIf="isLoading$ | async"></ant-loading>
+    <ant-error-message *ngIf="error$ | async"></ant-error-message>
+
+    <div class="row article-content" *ngIf="article">
+      <div class="col-xs-12">
+        <div>
+          <p>{{ article.body }}</p>
+        </div>
+        <ant-tag-list [tags]="article.tagList"></ant-tag-list>
+      </div>
+    </div>
+  </div>
 </div>

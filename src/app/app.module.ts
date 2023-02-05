@@ -16,6 +16,7 @@ import {AuthInterceptor} from "./shared/services/AuthInterceptor.service";
 import {GlobalFeedModule} from "./global-feed/GlobalFeed.module";
 import {YourFeedModule} from "./your-feed/YourFeed.module";
 import {TagFeedModule} from "./tag-feed/TagFeed.module";
+import {ArticleModule} from "./article/Article.module";
 
 @NgModule({
   declarations: [AppComponent],
@@ -31,12 +32,13 @@ import {TagFeedModule} from "./tag-feed/TagFeed.module";
       maxAge: 25,
       logOnly: environment.production,
     }),
+    StoreRouterConnectingModule.forRoot(),
     EffectsModule.forRoot([]),
     TopBarModule,
     GlobalFeedModule,
     YourFeedModule,
     TagFeedModule,
-    StoreRouterConnectingModule.forRoot(),
+    ArticleModule,
   ],
   providers: [
     PersistenceService,

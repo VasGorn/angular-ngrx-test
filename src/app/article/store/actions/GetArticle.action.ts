@@ -5,7 +5,7 @@ import {ActionTypes} from "../ActionTypes";
 
 export const getArticleAction = createAction(
   ActionTypes.GET_ARTICLE,
-  props<{slug: string}>()
+  props<{slug: string | null}>()
 );
 
 export const getArticleSuccessAction = createAction(

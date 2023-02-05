@@ -10,8 +10,14 @@ import {ErrorMessageModule} from "../shared/modules/error-message/ErrorMessage.m
 import {GetArticleEffect} from "./store/effects/GetArticle.effect";
 import {reducers} from "./store/Reducers";
 import {LoadingModule} from "../shared/modules/loading/Loading.module";
+import {TagListModule} from "../shared/modules/tag-list/TagList.module";
 
-const routes: Routes = [];
+const routes: Routes = [
+  {
+    path: "articles/:slug",
+    component: ArticleComponent,
+  },
+];
 
 @NgModule({
   imports: [
@@ -21,6 +27,7 @@ const routes: Routes = [];
     StoreModule.forFeature("article", reducers),
     ErrorMessageModule,
     LoadingModule,
+    TagListModule,
   ],
   declarations: [ArticleComponent],
   exports: [],
