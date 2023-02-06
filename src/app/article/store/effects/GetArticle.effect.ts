@@ -12,7 +12,7 @@ import {
 
 @Injectable()
 export class GetArticleEffect {
-  getFeed$ = createEffect(() =>
+  getArticle$ = createEffect(() =>
     this.actions$.pipe(
       ofType(getArticleAction),
       switchMap(({slug}) => {
