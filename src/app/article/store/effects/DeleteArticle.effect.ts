@@ -3,7 +3,7 @@ import {Router} from "@angular/router";
 import {Actions, createEffect, ofType} from "@ngrx/effects";
 import {catchError, map, of, switchMap, tap} from "rxjs";
 
-import {ArticleService} from "../../services/article.service";
+import {ArticleService} from "../../services/Article.service";
 import {
   deleteArticleAction,
   deleteArticleFailureAction,

@@ -17,6 +17,7 @@ import {GlobalFeedModule} from "./global-feed/GlobalFeed.module";
 import {YourFeedModule} from "./your-feed/YourFeed.module";
 import {TagFeedModule} from "./tag-feed/TagFeed.module";
 import {ArticleModule} from "./article/Article.module";
+import {CreateArticleModule} from "./create-article/CreateArticle.module";
 
 @NgModule({
   declarations: [AppComponent],
@@ -38,6 +39,7 @@ import {ArticleModule} from "./article/Article.module";
     GlobalFeedModule,
     YourFeedModule,
     TagFeedModule,
+    CreateArticleModule, // important - 'ArticleModule' after 'CreateArticleModule', because of URL
     ArticleModule,
   ],
   providers: [

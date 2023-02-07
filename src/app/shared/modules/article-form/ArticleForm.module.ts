@@ -1,0 +1,12 @@
+import {NgModule} from "@angular/core";
+import {CommonModule} from "@angular/common";
+import {RouterModule, Routes} from "@angular/router";
+
+import {ArticleFormComponent} from "./components/article-form/ArticleForm.component";
+
+@NgModule({
+  imports: [CommonModule],
+  declarations: [ArticleFormComponent],
+  exports: [ArticleFormComponent],
+})
+export class ArticleFormModule {}
