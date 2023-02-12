@@ -1,13 +1,13 @@
 import {createAction, props} from "@ngrx/store";
 
-import {AddArticleRequestInterface} from "src/app/shared/types/AddArticleRequest.interface";
 import {ArticleInterface} from "src/app/shared/types/Article.interface";
 import {BackendErrorsInterface} from "src/app/shared/types/backendErrors.interface";
+import {CreateArticleRequestInterface} from "../../types/CreateArticleRequest.interface";
 import {ActionTypes} from "../ActionTypes";
 
 export const createArticleAction = createAction(
   ActionTypes.CREATE_ARTICLE,
-  props<{articleRequest: AddArticleRequestInterface}>()
+  props<{articleRequest: CreateArticleRequestInterface}>()
 );
 
 export const createArticleSuccessAction = createAction(

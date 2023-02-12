@@ -18,6 +18,7 @@ import {YourFeedModule} from "./your-feed/YourFeed.module";
 import {TagFeedModule} from "./tag-feed/TagFeed.module";
 import {ArticleModule} from "./article/Article.module";
 import {CreateArticleModule} from "./create-article/CreateArticle.module";
+import {EditArticleModule} from "./edit-article/EditArticle.module";
 
 @NgModule({
   declarations: [AppComponent],
@@ -39,8 +40,9 @@ import {CreateArticleModule} from "./create-article/CreateArticle.module";
     GlobalFeedModule,
     YourFeedModule,
     TagFeedModule,
-    CreateArticleModule, // important - 'ArticleModule' after 'CreateArticleModule', because of URL
-    ArticleModule,
+    CreateArticleModule,
+    ArticleModule, // important - 'ArticleModule' after 'CreateArticleModule', because of URL
+    EditArticleModule,
   ],
   providers: [
     PersistenceService,

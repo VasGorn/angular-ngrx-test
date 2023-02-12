@@ -10,13 +10,15 @@ import {BackendErrorsInterface} from "src/app/shared/types/backendErrors.interfa
 })
 export class ArticleFormComponent implements OnInit {
   private readonly NOT_INITIALIZED: string = "not initialized";
-
-  @Input("initialValues") initialValuesProps: ArticleRequestInterface = {
+  private readonly NULL_ARTICLE_REQUEST: ArticleRequestInterface = {
     title: this.NOT_INITIALIZED,
     description: this.NOT_INITIALIZED,
     body: this.NOT_INITIALIZED,
     tagList: [],
   };
+
+  @Input("initialValues") initialValuesProps: ArticleRequestInterface =
+    this.NULL_ARTICLE_REQUEST;
   @Input("isSubmitting") isSubmittingProps: boolean = false;
   @Input("errors") errorsProps: BackendErrorsInterface | null = null;
 

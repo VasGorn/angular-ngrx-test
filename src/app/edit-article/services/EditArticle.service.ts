@@ -5,18 +5,19 @@ import {map, Observable} from "rxjs";
 import {ArticleInterface} from "src/app/shared/types/Article.interface";
 import {ArticleResponseInterface} from "src/app/shared/types/ArticleResponse.interface";
 import {environment} from "src/environments/environment";
-import {CreateArticleRequestInterface} from "../types/CreateArticleRequest.interface";
+import {UpdateArticleRequestInterface} from "../types/UpdateArticleRequest.interface";
 
 @Injectable()
-export class CreateArticleService {
+export class EditArticleService {
   constructor(private http: HttpClient) {}
 
-  createArticle(
-    articleRequest: CreateArticleRequestInterface
+  updateArticle(
+    slug: string,
+    articleRequest: UpdateArticleRequestInterface
   ): Observable<ArticleInterface> {
-    const fullUrl = environment.apiUrl + "/articles";
+    const fullUrl = `${environment.apiUrl}/articles/${slug}`;
     return this.http
-      .post<ArticleResponseInterface>(fullUrl, articleRequest)
+      .put<ArticleResponseInterface>(fullUrl, articleRequest)
       .pipe(
         map((response: ArticleResponseInterface) => {
           return response.article;

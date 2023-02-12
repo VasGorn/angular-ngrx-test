@@ -1,0 +1,8 @@
+<ant-loading *ngIf="isLoading$ | async"></ant-loading>
+<ant-article-form
+  *ngIf="initialValues$ | async"
+  [initialValues]="(initialValues$ | async) || NULL_ARTICLE_REQUEST"
+  [isSubmitting]="(isSubmitting$ | async) || false"
+  [errors]="backendErrors$ | async"
+  (articleSubmit)="onSubmit($event)"
+></ant-article-form>

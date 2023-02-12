@@ -1,7 +1,6 @@
 import {Component, OnInit} from "@angular/core";
 import {select, Store} from "@ngrx/store";
 import {Observable} from "rxjs";
-import {AddArticleRequestInterface} from "src/app/shared/types/AddArticleRequest.interface";
 
 import {ArticleRequestInterface} from "src/app/shared/types/ArticleRequest.interface";
 import {BackendErrorsInterface} from "src/app/shared/types/backendErrors.interface";
@@ -10,6 +9,7 @@ import {
   isSubmittingSelector,
   validationErrorSelector,
 } from "../../store/Selectors";
+import {CreateArticleRequestInterface} from "../../types/CreateArticleRequest.interface";
 
 @Component({
   selector: "ant-create-article",
@@ -34,11 +34,11 @@ export class CreateArticleComponent implements OnInit {
   }
 
   onSubmit(articleRequest: ArticleRequestInterface): void {
-    const addArticleRequest: AddArticleRequestInterface = {
+    const createArticleRequest: CreateArticleRequestInterface = {
       article: articleRequest,
     };
     this.store.dispatch(
-      createArticleAction({articleRequest: addArticleRequest})
+      createArticleAction({articleRequest: createArticleRequest})
     );
   }
 }
