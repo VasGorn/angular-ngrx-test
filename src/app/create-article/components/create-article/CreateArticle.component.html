@@ -1,6 +1,6 @@
-Create Article
 <ant-article-form
   [initialValues]="initialValues"
-  [isSubmitting]="false"
+  [isSubmitting]="(isSubmitting$ | async) || false"
+  [errors]="backendErrors$ | async"
   (articleSubmit)="onSubmit($event)"
 ></ant-article-form>
