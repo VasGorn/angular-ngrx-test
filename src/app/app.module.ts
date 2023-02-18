@@ -19,6 +19,7 @@ import {TagFeedModule} from "./tag-feed/TagFeed.module";
 import {ArticleModule} from "./article/Article.module";
 import {CreateArticleModule} from "./create-article/CreateArticle.module";
 import {EditArticleModule} from "./edit-article/EditArticle.module";
+import {SettingsModule} from "./settings/Settings.module";
 
 @NgModule({
   declarations: [AppComponent],
@@ -43,6 +44,7 @@ import {EditArticleModule} from "./edit-article/EditArticle.module";
     CreateArticleModule,
     ArticleModule, // important - 'ArticleModule' after 'CreateArticleModule', because of URL
     EditArticleModule,
+    SettingsModule,
   ],
   providers: [
     PersistenceService,
