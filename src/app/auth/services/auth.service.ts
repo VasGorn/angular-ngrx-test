@@ -8,6 +8,7 @@ import {environment} from "src/environments/environment";
 import {AuthResponseInterface} from "../types/authResponse.interface";
 import {LoginRequestInterface} from "../types/loginRequest.interface";
 import {RegisterRequestInterface} from "../types/registerRequest.interface";
+import {UserUpdateRequestInterface} from "../types/UserUpdateRequest.interface";
 
 @Injectable()
 export class AuthService {
@@ -37,7 +38,7 @@ export class AuthService {
   }
 
   updateCurrentUser(
-    updateUserRequest: CurrentUserRequestInterface
+    updateUserRequest: UserUpdateRequestInterface
   ): Observable<CurrentUserInterface> {
     const url = environment.apiUrl + "/user";
     return this.http
