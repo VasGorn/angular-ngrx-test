@@ -12,6 +12,7 @@ import {ErrorMessageModule} from "../error-message/ErrorMessage.module";
 import {LoadingModule} from "../loading/Loading.module";
 import {PaginationModule} from "../pagination/Pagination.module";
 import {TagListModule} from "../tag-list/TagList.module";
+import {AddToFavoritesModule} from "../add-to-favorites/AddToFavorites.module";
 
 const routes: Routes = [];
 
@@ -25,6 +26,7 @@ const routes: Routes = [];
     LoadingModule,
     PaginationModule,
     TagListModule,
+    AddToFavoritesModule,
   ],
   declarations: [FeedComponent],
   exports: [FeedComponent],
