@@ -19,10 +19,11 @@
         </span>
       </div>
       <div class="pull-xs-right">
-        <ant-add-to-favorites>
-          [isFavorited]="article.favorited" [articleSlug]="article.slug"
+        <ant-add-to-favorites
+          [isFavorited]="article.favorited"
+          [articleSlug]="article.slug"
           [favoritesCount]="article.favoritesCount"
-        </ant-add-to-favorites>
+        ></ant-add-to-favorites>
       </div>
     </div>
     <a [routerLink]="['/articles', article.slug]" class="preview-link">
