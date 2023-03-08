@@ -8,6 +8,7 @@ import {UserProfileComponent} from "./components/user-profile/UserProfile.compon
 import {UserProfileService} from "./services/user-profile.service";
 import {GetUserProfileEffect} from "./store/effects/GetUserProfile.effect";
 import {reducers} from "./store/reducers";
+import {FeedModule} from "../shared/modules/feed/Feed.module";
 
 const routes: Routes = [
   {
@@ -15,7 +16,7 @@ const routes: Routes = [
     component: UserProfileComponent,
   },
   {
-    path: "profiles/:slug",
+    path: "profiles/:slug/favorites",
     component: UserProfileComponent,
   },
 ];
@@ -23,6 +24,7 @@ const routes: Routes = [
 @NgModule({
   imports: [
     CommonModule,
+    FeedModule,
     RouterModule.forChild(routes),
     EffectsModule.forFeature([GetUserProfileEffect]),
     StoreModule.forFeature("UserProfile", reducers),
