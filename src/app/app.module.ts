@@ -20,6 +20,7 @@ import {ArticleModule} from "./article/Article.module";
 import {CreateArticleModule} from "./create-article/CreateArticle.module";
 import {EditArticleModule} from "./edit-article/EditArticle.module";
 import {SettingsModule} from "./settings/Settings.module";
+import {UserProfileModule} from "./user-profile/UserProfile.module";
 
 @NgModule({
   declarations: [AppComponent],
@@ -45,6 +46,7 @@ import {SettingsModule} from "./settings/Settings.module";
     ArticleModule, // important - 'ArticleModule' after 'CreateArticleModule', because of URL
     EditArticleModule,
     SettingsModule,
+    UserProfileModule,
   ],
   providers: [
     PersistenceService,
